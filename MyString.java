@@ -12,8 +12,19 @@ public class MyString implements CharSequence {
     return data.length;
   }
   public CharSequence subSequence(int start, int end) {
-    CharSequence output = "";
+    String output = "";
     for (int idx = start; idx < end; idx ++) {
-      output.charAt
+      output += data[idx];
     }
+    CharSequence out = new MyString(output);
+    return out;
+  }
+  public String toString() {
+    String output = "";
+    for (int idx = 0; idx < data.length; idx ++) {
+      output += data[idx];
+    }
+    return output;
+  }
+
 }
