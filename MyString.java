@@ -1,8 +1,9 @@
 public class MyString implements CharSequence {
   private char[] data;
   public MyString (CharSequence s) {
+    data = new char[s.length()];
     for(int idx = 0; idx < s.length(); idx ++) {
-      data[idx] = charAt(idx);
+      data[idx] = s.charAt(idx);
       // Goes and loops through the CharSequence and adds each element to the array
     }
   }
@@ -24,13 +25,11 @@ public class MyString implements CharSequence {
     for (int idx = start; idx < end; idx ++) {
       output += data[idx];
     }
-    CharSequence out = new MyString(output);
-    // Converting string to CharSequence
-    return out;
+    return output;
   }
   public String toString() {
     String output = "";
-    for (int idx = 0; idx < data.length; idx ++) {
+    for (int idx = 0; idx < length(); idx ++) {
       output += data[idx];
     }
     return output;
