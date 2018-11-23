@@ -39,12 +39,9 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
     if (s == null) {
       throw new NullPointerException();
     }
-    int len = 0;
+    int len = length();
     if (length() > s.length()) {
       len = s.length();
-    }
-    if (s.length() > length()) {
-      len = length();
     }
     //Makes sure chars are still compared even if the CharSequence's are different lengths
     for (int idx = 0; idx < len; idx ++) {
