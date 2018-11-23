@@ -39,19 +39,28 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
     if (s == null) {
       throw new NullPointerException();
     }
+    int len = 0;
     if (length() > s.length()) {
-      return 1;
+      len = s.length();
     }
     if (s.length() > length()) {
-      return -1;
+      len = length();
     }
-    for (int idx = 0; idx < length(); idx ++) {
+    //Makes sure chars are still compared even if the CharSequence's are different lengths
+    for (int idx = 0; idx < len; idx ++) {
       if ((int) charAt(idx) > (int) s.charAt(idx)) {
         return 1;
       }
       if ((int) charAt(idx) < (int) s.charAt(idx)) {
         return -1;
       }
+    }
+    //If all char's are the same, compares the lengths of the CharSequence's
+    if (length() > s.length()) {
+      return 1;
+    }
+    if (s.length() > length()) {
+      return -1;
     }
     return 0;
   }
